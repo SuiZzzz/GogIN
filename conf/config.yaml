@@ -15,11 +15,3 @@ spark:
   appid: "xxxxxxxxx"
   apiSecret: "xxxxxxxx"
   apiKey: "xxxxxxxxxxxxxxxxxx"
-
-
-
-#spark:
-#  hostUrl: "wss://spark-api.xf-yun.com/v2.1/chat"
-#  appid: "7536c1f1"
-#  apiSecret: "NWQ3ZjBkZjc2NjdhNzVmMWI1MWEwOGYx"
-#  apiKey: "16cb81e3c16811ef01cf766bf7835ecd"
