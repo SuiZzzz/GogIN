@@ -1,6 +1,7 @@
 package dao
 
 import (
+	"GoGin/conf"
 	"GoGin/dao/model"
 	_ "GoGin/log"
 	"context"
@@ -15,7 +16,10 @@ import (
 var _db *gorm.DB
 
 func init() {
-	DataBaseLog("root:123456@tcp(localhost:3306)/gnet?charset=utf8mb4&parseTime=True&loc=Local")
+	config := conf.Conf.Mysql
+	dsn := config.Username + ":" + config.Password + "@tcp(" + config.Host + ":" + config.Port + ")/" + config.Database +
+		"?charset=utf8mb4&parseTime=True&loc=Local"
+	DataBaseLog(dsn)
 }
 
 func DataBaseLog(dsn string) {
