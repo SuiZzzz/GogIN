@@ -81,7 +81,7 @@ func getNotification(ctx context.Context, req *serializer.ClientReq) *serializer
 		// 审核状态
 		audit := model.Audit[n.Audit]
 		auditType = append(auditType, audit)
-		if req.UserId == n.AuditorId {
+		if n.AuditorId == 0 || n.AuditorId != 0 && n.AuditorId == req.UserId {
 			// 当前为审核人员
 			username := user.FindById(n.SenderId).Nickname
 			text = fmt.Sprintf("审核状态：%s\n用户 %s 向您发送审核申请，审核语句为：\n%s", audit, username, n.SQL)

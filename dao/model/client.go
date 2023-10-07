@@ -14,8 +14,8 @@ var Audit = map[byte]string{
 type Notification struct {
 	gorm.Model
 	SenderId   uint      `json:"sender_id" gorm:"default:0;comment:'发送者id'"`
-	AuditorId  uint      `json:"auditor_id" gorm:"default:0;comment:'接收者id，系统默认0'"`
-	ReceiverId uint      `json:"receiver_id" gorm:"default:0;comment:'审核人id'"`
+	ReceiverId uint      `json:"auditor_id" gorm:"default:0;comment:'接收者id，系统默认0'"`
+	AuditorId  uint      `json:"receiver_id" gorm:"default:0;comment:'审核人id'"`
 	Type       byte      `json:"type" gorm:"default:0;comment:'消息类型，默认0'"`
 	Audit      byte      `json:"audit" gorm:"default:0;comment:'是否审核，0未审核，1已通过，2未通过'"`
 	SQL        string    `json:"sql" gorm:"type:varchar(100);default:'';comment:'sql语句"`

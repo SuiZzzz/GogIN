@@ -29,7 +29,10 @@ func HandleClient() gin.HandlerFunc {
 			for {
 				resp := client.HandleMessage(conn, c)
 				bytes, _ := json.Marshal(resp)
-				_ = conn.WriteMessage(websocket.TextMessage, bytes)
+				err = conn.WriteMessage(websocket.TextMessage, bytes)
+				if err != nil {
+					break
+				}
 			}
 		}()
 	}

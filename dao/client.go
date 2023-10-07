@@ -18,7 +18,7 @@ func NewClientDao(ctx context.Context) *ClientDao {
 func (c *ClientDao) FindNotificationsBatches(send uint) *[]model.Notification {
 	var messages []model.Notification
 	c.Session(&gorm.Session{QueryFields: true}).Table("notification").
-		Where("sender_id = ?", send).Or("receiver_id = ?", send).
+		Where("sender_id = ?", send).Or("auditor_id = ?", send).
 		Order("created_at desc").Find(&messages)
 	return &messages
 }

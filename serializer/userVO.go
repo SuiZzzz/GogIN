@@ -9,6 +9,7 @@ type UserVo struct {
 	Phone    string `json:"phone"`
 	Email    string `json:"email"`
 	Avatar   string `json:"avatar"`
+	Id       uint   `json:"id"`
 }
 
 func BuildUserVO(user *model.User) *UserVo {
@@ -19,5 +20,6 @@ func BuildUserVO(user *model.User) *UserVo {
 		Phone:    user.Phone,
 		Email:    user.Email,
 		Avatar:   user.Avatar,
+		Id:       user.ID,
 	}
 }
