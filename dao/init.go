@@ -62,6 +62,14 @@ func DataBaseLog(dsn string) {
 			panic(err)
 		}
 	}
+	var notification model.Notification
+	exist = _db.Migrator().HasTable(&notification)
+	if !exist {
+		err := _db.AutoMigrate(&notification)
+		if err != nil {
+			panic(err)
+		}
+	}
 }
 
 func NewSession(ctx context.Context) *gorm.DB {

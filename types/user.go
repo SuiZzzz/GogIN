@@ -11,6 +11,6 @@ type UserRegisterReq struct {
 type UserLoginReq struct {
 	Username     string `json:"username" form:"username"`
 	Password     string `json:"password" form:"password"`
-	Phone        string `json:"phone" form:"phone"`
-	VerifiedCode string `json:"verifiedCode" form:"email"`
+	Phone        string `json:"phone,omitempty" form:"phone"`
+	VerifiedCode string `json:"verifiedCode,omitempty" form:"email"`
 }

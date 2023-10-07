@@ -2,7 +2,7 @@ package service
 
 import (
 	"GoGin/conf"
-	serializer "GoGin/serializer"
+	"GoGin/serializer"
 	"GoGin/types"
 	"crypto/hmac"
 	"crypto/sha256"
@@ -60,8 +60,6 @@ func (*SparkService) ConnToSpark(req *types.AIReq) *serializer.Response {
 	// 发送请求
 	go func() {
 		req := buildReq(config.Appid, req.Data)
-		marshal, _ := json.Marshal(&req)
-		log.Println(marshal)
 		err = conn.WriteJSON(req)
 	}()
 	// 获取响应

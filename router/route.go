@@ -16,5 +16,7 @@ func NewRouter() *gin.Engine {
 	{
 		group2.POST("/talk", api.Talk())
 	}
+	// 客户端websocket请求
+	engine.GET("/ws", api.HandleClient())
 	return engine
 }
